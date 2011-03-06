@@ -1,0 +1,79 @@
+<%
+# WontoMedia - a wontology web application
+# Copyright (C) 2010 - Glen E. Ivey
+#    www.wontology.com
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License version
+# 3 as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program in the file COPYING and/or LICENSE.  If not,
+# see "http://www.gnu.org/licenses/".
+%>
+
+
+<style type="text/css">
+  #intro-text-container p {
+    font-size: 120%;
+    line-height: 130%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 1em;
+  }
+  #intro-text-container li {
+    font-size: 140%;
+    width: 78%;
+    margin-left: 11%;
+    color: yellow;
+  }
+  #intro-text-container li span {
+    color: black;
+  }
+</style>
+<div id="intro-text-container">
+  <p>
+A wontology is a <u>w</u>iki-<u>ontology</u>: a publicly editable
+store of information in lists, trees, hierarchies, and relationships.
+To get started:
+  </p><ul>
+    <li><span>read <a href="<%= WontoMedia.help_url_prefix -%>Help:Information_as_Relationships">Information as Relationships</a>,</span></li>
+    <li><span>do our <a href="<%= WontoMedia.help_url_prefix -%>Help:Tutorials/Creating_an_Item">first tutorial</a>, or</span></li>
+    <li><span>go to our sample wontology, <%=
+      link_to_item_by_name 'ProgrammingLanguages', 'Programming Language' -%>
+      categories.</span></li>
+  </ul><p>
+<em>You are welcome to experiment with this system and its data</em>, to
+add new information, and to expand or edit what is already present.
+  </p><p>
+For more information, see
+
+<a href="<%= WontoMedia.help_url_prefix -%>Help:Wontology_Concepts">Wontology Concepts</a>,
+
+<a href="<%= WontoMedia.help_url_prefix -%>Help:Naming_Conventions">Naming Conventions</a>, and
+
+<a href="<%= WontoMedia.help_url_prefix -%>Help:About_Wontology.org">About wontology.org</a>.
+
+This wontology can contain information for many different subject
+areas, but is currently mostly about the relationships between
+different types and families of programming languages.  You can simply
+browse from the links below, or start from
+
+<a href="<%= WontoMedia.help_url_prefix -%>Help:Browsing_a_Wontology">Browsing a Wontology</a>
+
+There are also <a href="<%= WontoMedia.help_url_prefix -%>Help:Tutorials" target="_blank">several other tutorials</a> and a <a href="<%= WontoMedia.help_url_prefix -%>Help:GlossaryAtoO">glossary</a> of wontology terms.
+
+  </p><p>
+
+Please contact us on our
+<a href="http://rubyforge.org/forum/?group_id=7903">forum</a> or
+<a href="http://rubyforge.org/mail/?group_id=7903">email list</a>
+with questions or comments.
+
+  </p>
+</div>

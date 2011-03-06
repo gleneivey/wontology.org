@@ -1,0 +1,62 @@
+<%
+# WontoMedia - a wontology web application
+# Copyright (C) 2010 - Glen E. Ivey
+#    www.wontology.com
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License version
+# 3 as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program in the file COPYING and/or LICENSE.  If not,
+# see "http://www.gnu.org/licenses/".
+%>
+
+<style>
+  #lang-list {
+    padding-left: 1em;
+    list-style-type: circle;
+  }
+  #lang-list ul {
+    padding-left: 0.85em;
+    list-style-type: circle;
+  }
+</style>
+<div class="subheading">Programming Language Wontology</div>
+<ul id="lang-list">
+  <li><%= link_to_item_by_name 'ProgrammingLanguages' %>
+    <ul>
+      <li><%= link_to_item_by_name 'ProgrammingLanguageExecutionStyles' %>
+        <ul>
+          <li><%= link_to_item_by_name 'AssemblyProgrammingLanguages' %></li>
+          <li><%= link_to_item_by_name 'CompiledProgrammingLanguages' %>
+            <ul><li><%= link_to_item_by_name 'C' %>
+              <ul><li><%= link_to_item_by_name 'KRC' %></li>
+                <li><%= link_to_item_by_name 'AnsiC' %></li>
+                <li><%= link_to_item_by_name 'Cplusplus' %></li>
+              </ul>
+            </li></ul>
+          </li>
+          <li><%= link_to_item_by_name(
+            'IntermediateFormProgrammingLanguages') %></li>
+          <li><%= link_to_item_by_name 'InterpretedProgrammingLanguages' %></li>
+        </ul>
+      </li>
+      <li><%= link_to_item_by_name 'ProgrammingLanguageParadigms' %>
+        <ul>
+          <li><%= link_to_item_by_name 'FunctionalProgrammingLanguages' %></li>
+          <li><%= link_to_item_by_name 'ProceduralProgrammingLanguages' %>
+            <ul><li><%= link_to_item_by_name 'C' %></li></ul>
+          </li>
+          <li><%= link_to_item_by_name(
+            'ObjectOrientedProgrammingLanguages') %></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
