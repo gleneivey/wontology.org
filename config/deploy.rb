@@ -30,22 +30,32 @@
 set :application, "wontology.org"
 set :repository,  "git://github.com/gleneivey/wontology.org.git"
 
+# find the exact name and version of the wontomedia gem we're using, whether bundler/rvm/whatever
+$:.detect {|dir| dir =~ %r%^(.*wontomedia-[^/]+)/% }
+local_wontomedia_path = $1
+local_wontomedia_path =~ %r%([^/]*wontomedia-[^/]+)%
+wontomedia_name_with_version = $1
+
+load File.join( local_wontomedia_path, 'config', 'deploy_wontomedia.rb' )
+load File.join( local_wontomedia_path, 'config', 'deploy_on_a2hosting.rb' )
+
+
+# Keep bundle in per-release directory tree because it contains the
+# wontomedia gem and we have to modify the gem directory's content
+# to customize the app.  Overhead of re-installing other gems on each
+# deploy is wasteful, but a necessary side effect.
+p release_path
+p current_path
+set :bundle_dir, File.join( release_path || current_path, 'bundle')
+remote_wontomedia_path = File.join( bundle_dir, 'ruby', '1.8', 'gems', wontomedia_name_with_version )
 require 'bundler/capistrano'
-
-
-# find exactly the gem we're using, whether bundler/rvm/whatever
-$:.detect {|dir| dir =~ %r%(^.*wontomedia-[^/]+)/%}
-wontomedia = $1
-
-load File.join( wontomedia, 'config', 'deploy_wontomedia.rb' )
-load File.join( wontomedia, 'config', 'deploy_on_a2hosting.rb' )
 
 role :app, 'wontology.org'
 role :web, 'wontology.org', :deploy => false
 role :db,  'wontology.org', :primary => true
 
-set :app_to_run, wontomedia
-set :app_to_customize, wontomedia
+set :app_to_run, remote_wontomedia_path
+set :app_to_customize, remote_wontomedia_path
 set :app_customization, [
       File.join( app_to_customize, 'default-custom' ),
       File.join( release_path,     'customizations' )
