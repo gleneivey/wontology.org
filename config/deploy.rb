@@ -44,8 +44,6 @@ load File.join( local_wontomedia_path, 'config', 'deploy_on_a2hosting.rb' )
 # wontomedia gem and we have to modify the gem directory's content
 # to customize the app.  Overhead of re-installing other gems on each
 # deploy is wasteful, but a necessary side effect.
-p release_path
-p current_path
 set :bundle_dir, File.join( release_path || current_path, 'bundle')
 remote_wontomedia_path = File.join( bundle_dir, 'ruby', '1.8', 'gems', wontomedia_name_with_version )
 require 'bundler/capistrano'
