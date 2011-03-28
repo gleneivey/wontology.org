@@ -61,3 +61,18 @@ set :app_customization, [
       File.join( release_path,     'customizations' )
   ].join(':')
 set :a2_port,            12024
+
+
+before 'deploy:symlink', 'deploy:link:to_wontomedia_gem'
+
+namespace :deploy do
+  namespace :link do
+    desc 'create version number-less link to wontomedia gem'
+    task :to_wontomedia_gem, :roles => [ :app ] do
+      wontomedia_link = File.join release_path, 'wontomedia'
+      run "if [ ! -e #{wontomedia_link} ]; then " +
+          "  ln -s #{app_to_run} #{wontomedia_link};" +
+          "fi"
+    end
+  end
+end
